@@ -1,0 +1,136 @@
+.post-item-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .post-item-container {
+    border: none;
+  }
+}
+
+.post-item-header {
+  padding-left: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.post-item-text {
+  padding: 15px;
+}
+
+.post-item-profile-pic {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(#e20337, #c60188, #7700c3);
+  padding: 1px;
+}
+
+.post-item-link {
+  text-decoration: none;
+}
+
+.post-item-user-name {
+  margin-left: 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #262626;
+}
+
+.post-item-main-image {
+  width: 100%;
+}
+
+.post-item-icons-container {
+  display: flex;
+  margin-top: 0;
+  align-items: center;
+}
+
+.post-item-like-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.unlike-icon {
+  color: #475569;
+  height: 21px;
+  width: 21px;
+  margin-top: 5px;
+  stroke-width: 0.5px;
+}
+
+.like-icon {
+  color: #475569;
+  height: 24px;
+  width: 24px;
+}
+
+.post-item-icon {
+  color: #475569;
+  margin: 5px;
+  height: 24px;
+  width: 24px;
+}
+
+.post-item-likes {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #262626;
+  margin-bottom: 5px;
+}
+
+.post-item-caption {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+}
+
+.comments-list-container {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.comment-username {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #262626;
+  margin-right: 5px;
+}
+
+.comment-item {
+  margin-bottom: 8px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #262626;
+}
+
+.post-item-time {
+  margin-top: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #989898;
+}

@@ -1,0 +1,35 @@
+.posts-main-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .posts-main-container {
+    width: 100%;
+  }
+}
+
+.posts-list {
+  padding-left: 0;
+  margin-top: 0;
+  width: 100%;
+  max-width: 1110px;
+}
+
+.posts-error-view-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts-failure-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
