@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import Loader from 'react-loader-spinner'
+import Loading from '../Loader'
 
 import PostItem from '../PostItem'
 import './index.css'
@@ -85,7 +85,7 @@ class Posts extends Component {
       </p>
       <button
         type="button"
-        data-testid="button"
+        testid="button"
         className="profile-failure-button"
         onClick={this.getPostsData}
       >
@@ -96,9 +96,7 @@ class Posts extends Component {
 
   renderLoadingView = () => (
     // eslint-disable-next-line react/no-unknown-property
-    <div className="loader-container" testid="loader">
-      <Loader type="TailSpin" color="#4094EF" height={50} width={50} />
-    </div>
+    <Loading />
   )
 
   renderViews = () => {

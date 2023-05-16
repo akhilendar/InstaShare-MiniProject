@@ -1,8 +1,8 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-
 import Slider from 'react-slick'
 
+import Loading from '../Loader'
 import './index.css'
 
 const apiStatusConstants = {
@@ -101,11 +101,7 @@ class Stories extends Component {
     }
   }
 
-  renderLoadingView = () => (
-    <div className="main-container">
-      <h1>Loading</h1>
-    </div>
-  )
+  renderLoadingView = () => <Loading />
 
   renderSlider = () => {
     const {userStories} = this.state
@@ -132,9 +128,23 @@ class Stories extends Component {
   )
 
   renderFailureView = () => (
-    <div className="main-container">
-      <h1>Failure View</h1>
-      <button type="button">Try again</button>
+    <div className="posts-error-view-container">
+      <img
+        src="https://res.cloudinary.com/dzvmpn4nr/image/upload/v1679656589/alert-triangle_hsre5i.svg"
+        alt="failure view"
+        className="posts-failure-img"
+      />
+      <p className="posts-failure-text">
+        Something went wrong. Please try again.
+      </p>
+      <button
+        type="button"
+        testid="button"
+        className="profile-failure-button"
+        onClick={this.getUserStories}
+      >
+        Try again
+      </button>
     </div>
   )
 
