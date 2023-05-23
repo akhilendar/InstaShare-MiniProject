@@ -13,7 +13,7 @@ const apiStatusConstants = {
   failure: 'FAILURE',
   inProcess: 'IN_PROCESS',
 }
-class UserDetailsRoute extends Component {
+class MyProfile extends Component {
   state = {
     userPostDetails: {},
     postDetails: [],
@@ -22,7 +22,7 @@ class UserDetailsRoute extends Component {
   }
 
   componentDidMount() {
-    this.getUserPostDetails()
+    this.getMyProfileDetails()
   }
 
   getUpdatedData = eachItem => ({
@@ -41,7 +41,7 @@ class UserDetailsRoute extends Component {
     image: data.image,
   })
 
-  getUserPostDetails = async () => {
+  getMyProfileDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.inProcess})
     const {match} = this.props
     const {params} = match
@@ -49,7 +49,7 @@ class UserDetailsRoute extends Component {
     console.log(userId)
 
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `https://apis.ccbp.in/insta-share/users/${userId}`
+    const apiUrl = `https://apis.ccbp.in/insta-share/my-profile`
     const options = {
       method: 'GET',
       headers: {
@@ -60,11 +60,11 @@ class UserDetailsRoute extends Component {
     if (response.ok === true) {
       const fetchedData = await response.json()
       console.log(fetchedData)
-      const updatedData = this.getUpdatedData(fetchedData.user_details)
-      const updatedPost = fetchedData.user_details.posts.map(eachData =>
+      const updatedData = this.getUpdatedData(fetchedData.profile)
+      const updatedPost = fetchedData.profile.posts.map(eachData =>
         this.getUpdatedPostAndStory(eachData),
       )
-      const updatedStory = fetchedData.user_details.stories.map(eachData =>
+      const updatedStory = fetchedData.profile.stories.map(eachData =>
         this.getUpdatedPostAndStory(eachData),
       )
       this.setState({
@@ -99,7 +99,7 @@ class UserDetailsRoute extends Component {
             <img
               className="profile-img"
               src={profilePicture}
-              alt="user profile"
+              alt="my profile"
             />
 
             <div className="user-post-detail-container">
@@ -107,19 +107,25 @@ class UserDetailsRoute extends Component {
               <ul className="user-follower-container">
                 <li>
                   <p className={`post-count ${textColor}`}>
+                    {' '}
                     <span className={`count ${textColor}`}>{postCount} </span>
                     posts
                   </p>
                 </li>
                 <li>
-                  <p className={`post-count count ${textColor}`}>
-                    {followerCount}
+                  <p className={`post-count ${textColor}`}>
+                    {' '}
+                    <span className={`count ${textColor}`}>
+                      {followerCount}
+                    </span>
                     followers
                   </p>
                 </li>
                 <li>
-                  <p className={`post-count count ${textColor}`}>
-                    {followingCount}
+                  <p className={`post-count ${textColor}`}>
+                    <span className={`count ${textColor}`}>
+                      {followingCount}
+                    </span>
                     following
                   </p>
                 </li>
@@ -135,7 +141,7 @@ class UserDetailsRoute extends Component {
                   <img
                     className="user-story"
                     src={eachStory.image}
-                    alt="user story"
+                    alt="my story"
                   />
                 </li>
               ))}
@@ -153,7 +159,7 @@ class UserDetailsRoute extends Component {
                     <img
                       className="posted-img"
                       src={eachPost.image}
-                      alt="user post"
+                      alt="my post"
                     />
                   </li>
                 ))}
@@ -171,7 +177,7 @@ class UserDetailsRoute extends Component {
   }
 
   onClickRetry = () => {
-    this.getUserPostDetails()
+    this.getMyProfileDetails()
   }
 
   renderFailureView = () => (
@@ -218,4 +224,4 @@ class UserDetailsRoute extends Component {
   }
 }
 
-export default UserDetailsRoute
+export default MyProfile

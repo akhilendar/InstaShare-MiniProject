@@ -54,7 +54,6 @@ class Header extends Component {
         <button
           className="search-button"
           type="button"
-          // eslint-disable-next-line react/no-unknown-property
           testid="searchIcon"
           onClick={this.searchClicked}
         >
