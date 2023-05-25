@@ -1,9 +1,9 @@
 import {Component} from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import {FaSearch} from 'react-icons/fa'
-import {IoIosCloseCircle} from 'react-icons/io'
-
 import Cookies from 'js-cookie'
+import {IoIosCloseCircle} from 'react-icons/io'
+import Search from '../Search'
 
 import './index.css'
 
@@ -36,8 +36,8 @@ class Header extends Component {
 
   searchClicked = () => {
     const {searchInput} = this.state
-    const {clickSearchButton} = this.props
-    clickSearchButton(searchInput)
+
+    return <Search search={searchInput} />
   }
 
   renderMobileSearchbar = () => {
