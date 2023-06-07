@@ -3,7 +3,6 @@ import {withRouter, Link} from 'react-router-dom'
 import {FaSearch} from 'react-icons/fa'
 import Cookies from 'js-cookie'
 import {IoIosCloseCircle} from 'react-icons/io'
-import Search from '../Search'
 
 import './index.css'
 
@@ -35,9 +34,10 @@ class Header extends Component {
   }
 
   searchClicked = () => {
+    const {searchFunction} = this.props
     const {searchInput} = this.state
 
-    return <Search search={searchInput} />
+    searchFunction(searchInput)
   }
 
   renderMobileSearchbar = () => {
